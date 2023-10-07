@@ -12,7 +12,7 @@ const Navbar = () => {
             Home
         </NavLink></li>
         <li><NavLink
-            to="/messages"
+            to="/"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-purple-600" : ""
             }
@@ -20,9 +20,9 @@ const Navbar = () => {
             About
         </NavLink></li>
         <li><NavLink
-            to="/messages"
+            to="/"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text" : ""
+                isPending ? "pending" : isActive ? "text-purple-600" : ""
             }
         >
             Blog
