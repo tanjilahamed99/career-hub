@@ -17,7 +17,7 @@ const Navbar = () => {
                 isPending ? "pending" : isActive ? "text-purple-600" : ""
             }
         >
-            About
+            Employs
         </NavLink></li>
         <li><NavLink
             to="/"
