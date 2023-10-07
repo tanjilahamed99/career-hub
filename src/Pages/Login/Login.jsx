@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../Component/Navbar/Navbar";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 
 const Login = () => {
+
+    const [see, setSee] = useState(false)
+
     return (
         <div>
             <Navbar></Navbar>
@@ -18,11 +23,14 @@ const Login = () => {
                                 </label>
                                 <input type="email" placeholder="email" className="input input-bordered" required />
                             </div>
-                            <div className="form-control">
-                                <label className="label">
+                            <div className="form-control relative">
+                                <label className="label ">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required />
+                                <input type={see ? "text" : "password"} placeholder="password" className="input input-bordered" required />
+                                {
+                                    see ? <FaEye onClick={() => setSee(!see)} className="absolute right-2 bottom-12 text-xl"></FaEye> : <FaEyeSlash onClick={() => setSee(!see)} className="absolute right-2 bottom-12 text-xl"></FaEyeSlash>
+                                }
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
@@ -30,7 +38,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
-                            <p>New here? <Link><span className="text-purple-600 font-bold">Create account</span></Link></p>
+                            <p>New here? <Link to={'/registration'}><span className="text-purple-600 font-bold">Create account</span></Link></p>
                         </form>
                     </div>
                 </div>

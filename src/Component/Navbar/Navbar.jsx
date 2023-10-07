@@ -11,6 +11,7 @@ const Navbar = () => {
         >
             Home
         </NavLink></li>
+
         <li><NavLink
             to="/"
             className={({ isActive, isPending }) =>
@@ -19,6 +20,7 @@ const Navbar = () => {
         >
             Employs
         </NavLink></li>
+
         <li><NavLink
             to="/"
             className={({ isActive, isPending }) =>
@@ -26,6 +28,14 @@ const Navbar = () => {
             }
         >
             Blog
+        </NavLink></li>
+        <li><NavLink
+            to="/registration"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-purple-600" : ""
+            }
+        >
+            Registration
         </NavLink></li>
 
     </>
@@ -53,7 +63,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <span>profile pic</span>
+                <img className="w-10" src="https://i.ibb.co/gvsBmQR/pngwing-com-22.png" alt="" />
                 <Link to={'/login'}><button className="btn bg-base-100">login</button></Link>
             </div>
         </div>
