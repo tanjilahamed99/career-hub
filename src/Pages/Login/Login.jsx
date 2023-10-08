@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Component/Navbar/Navbar";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
+    const navigate = useNavigate()
 
     const [see, setSee] = useState(false)
 
@@ -15,8 +16,8 @@ const Login = () => {
         const password = e.target.password.value
 
         loginUser(email, password)
-            .then(result => {
-                console.log(result.user)
+            .then(() => {
+               navigate('/')
             })
             .catch(error => {
                 console.error(error.message)

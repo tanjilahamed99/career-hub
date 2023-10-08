@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Component/Navbar/Navbar";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import auth from "../../Firebase/congig";
 
 const Registration = () => {
+
+    const navigate = useNavigate()
 
     const [see, setSee] = useState(false)
     const { createUser } = useContext(AuthContext)
@@ -14,13 +18,17 @@ const Registration = () => {
     const createAccount = e => {
         e.preventDefault()
         const name = e.target.name.value
+        const image = e.target.url.value
         const email = e.target.email.value
         const password = e.target.password.value
 
 
         createUser(email, password)
-            .then(result => {
-                console.log(result.user)
+            .then(() => {
+                updateProfile(auth.currentUser,{
+                    displayName: name, photoURL: image
+                })
+                navigate('/')
             })
             .catch(error => {
                 console.log(error.message)
@@ -43,6 +51,12 @@ const Registration = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input name="name" type="text" placeholder="name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Image URL</span>
+                                </label>
+                                <input name="url" type="text" placeholder="image" className="input input-bordered"  />
                             </div>
                             <div className="form-control">
                                 <label className="label">
