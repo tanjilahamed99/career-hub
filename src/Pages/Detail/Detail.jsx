@@ -15,7 +15,6 @@ const Detail = () => {
     useEffect(() => {
         const exits = jobsData.find(job => job.id === idx)
         setJob(exits)
-        console.log(exits)
     }, [jobsData, idx])
 
     return (

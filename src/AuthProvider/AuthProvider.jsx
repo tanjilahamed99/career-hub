@@ -1,18 +1,42 @@
 import PropTypes from 'prop-types';
-import { createContext } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import auth from '../Firebase/congig';
 
 export const AuthContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
 
+    const [user, setUser] = useState(null)
+
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+    const loginUser = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    const logout = () => {
+        return signOut(auth)
+    }
+
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
+            console.log(currentUser)
+        })
+        return () => {
+            unSubscribe()
+        }
+    }, [])
+
+
     const authInfo = {
-        createUser
+        createUser,
+        loginUser,
+        logout,
+        user
     }
 
     return (

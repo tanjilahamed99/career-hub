@@ -1,11 +1,27 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../Component/Navbar/Navbar";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
 
     const [see, setSee] = useState(false)
+
+    const { loginUser } = useContext(AuthContext)
+    const login = e => {
+        e.preventDefault()
+        const email = e.target.email.value
+        const password = e.target.password.value
+
+        loginUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error.message)
+            })
+    }
 
     return (
         <div>
@@ -16,18 +32,18 @@ const Login = () => {
                         <h1 className="text-5xl font-bold mb-3">Login now!</h1>
                     </div>
                     <div className=" w-full shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={login} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" required />
+                                <input name="email" type="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control relative">
                                 <label className="label ">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type={see ? "text" : "password"} placeholder="password" className="input input-bordered" required />
+                                <input name="password" type={see ? "text" : "password"} placeholder="password" className="input input-bordered" required />
                                 {
                                     see ? <FaEye onClick={() => setSee(!see)} className="absolute right-2 bottom-12 text-xl"></FaEye> : <FaEyeSlash onClick={() => setSee(!see)} className="absolute right-2 bottom-12 text-xl"></FaEyeSlash>
                                 }
