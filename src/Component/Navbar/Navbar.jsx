@@ -31,12 +31,12 @@ const Navbar = () => {
 
 
         <li><NavLink
-            to="/"
+            to="/about"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-purple-600" : ""
             }
         >
-            Blog
+            About us
         </NavLink></li>
 
         <li><NavLink

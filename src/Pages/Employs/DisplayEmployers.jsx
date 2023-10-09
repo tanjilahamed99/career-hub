@@ -4,7 +4,7 @@ const DisplayEmployers = ({ employers }) => {
     const { image_url, description, company_name, salary_per_hour, open_jobs_count, location } = employers
     return (
         <div className='shadow hover:shadow-xl p-6 bg-indigo-50'>
-            <div className='flex flex-col lg:flex-row gap-5 items-center'>
+            <div className='flex flex-col xl:flex-row gap-5 items-center'>
                 <div className='p-5 rounded-full w-[100%]'>
                     <img className='w-full h-[100px]' src={image_url} alt="" />
                 </div>
@@ -13,7 +13,7 @@ const DisplayEmployers = ({ employers }) => {
                     <p className="">{description}</p>
                 </div>
             </div>
-            <div className='flex flex-col lg:flex-row lg:items-center justify-center lg:gap-10  gap-3 rounded-md mt-5'>
+            <div className='flex flex-col xl:flex-row xl:items-center justify-center xl:gap-10  gap-3 rounded-md mt-5'>
               <p  className='font-normal text-purple-600'>{location}</p>
               <p className='font-normal '>${salary_per_hour}/Hour</p>
               <p className='font-normal'>{open_jobs_count} open jobs</p>

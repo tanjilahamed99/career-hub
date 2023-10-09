@@ -54,9 +54,9 @@ const Login = () => {
         <div>
             <Navbar></Navbar>
             <div className="hero min-h-screen">
-                <div className="lg:w-1/3 w-[90%] mx-auto">
+                <div className="lg:w-1/3 md:w-1/2 w-[90%]  mx-auto">
                     <div className="text-center ">
-                        <h1 className="text-5xl font-bold mb-3">Login now!</h1>
+                        <h1 className="md:text-5xl text-2xl mt-5 font-bold mb-3">Login now!</h1>
                     </div>
                     <div className=" w-full shadow-2xl bg-base-100">
                         <form onSubmit={login} className="card-body">

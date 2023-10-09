@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import AppliedJob from "../Pages/AppliedJob/AppliedJob";
 import Error from "../Pages/Error/Error";
 import Employs from "../Pages/Employs/Employs";
+import About from "../Pages/About/about";
 
 const Route = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const Route = createBrowserRouter([
                 path: '/employers',
                 element: <Employs></Employs>,
                 loader: () => fetch('employers.json')
+            },
+            {
+                path: '/about',
+                element: <About></About>
             }
         ]
     }
