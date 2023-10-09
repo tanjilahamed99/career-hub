@@ -23,8 +23,11 @@ const Registration = () => {
         const email = e.target.email.value
         const password = e.target.password.value
 
-        const passValidate = /^[a-z]{1,5}$/.test(password)
-        console.log(passValidate)
+        const passValidate = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(password)
+        
+        if(!passValidate){
+            return toast('your password not validate')
+        }
 
         createUser(email, password)
             .then(() => {
