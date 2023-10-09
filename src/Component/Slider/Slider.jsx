@@ -1,4 +1,5 @@
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Slider = () => {
     return (
         <div className="carousel w-full">
@@ -9,9 +10,11 @@ const Slider = () => {
                     <p className="font-medium text-[#000] pr-8">Career is an online platform that serves as a marketplace connecting job seekers and employers.</p>
                     <div className="flex gap-3">
                         <button className="btn bg-purple-600 text-white">Browse Job</button>
-                        <button className="btn border-none bg-base-100 text-purple-500 font-semibold">Employers
-                            <FaArrowRight></FaArrowRight>
-                        </button>
+                        <Link to={'/employers'}>
+                            <button className="btn border-none bg-base-100 text-purple-500 font-semibold">Employers
+                                <FaArrowRight></FaArrowRight>
+                            </button>
+                        </Link>
                     </div>
                 </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5  top-1/2">

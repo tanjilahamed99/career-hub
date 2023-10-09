@@ -1,0 +1,50 @@
+[
+    {
+        "image_url": "https://i.ibb.co/qF5PP94/pngwing-com-24.png",
+        "company_name": "ABC Corporation",
+        "salary_per_hour": 25,
+        "open_jobs_count": 5,
+        "location": "Anytown",
+        "description": "John Doe is a skilled professional working at ABC Corporation.ABC With The a passion for innovation "
+    },
+    {
+        "image_url": "https://i.ibb.co/kDgmS09/pngwing-com-25.png",
+        "company_name": "XYZ Inc.",
+        "salary_per_hour": 30,
+        "open_jobs_count": 3,
+        "location": "Somewhere",
+        "description": "Jane Smith is a dedicated professional at XYZ Inc., A company known for its cutting-edge solutions for every time "
+    },
+    {
+        "image_url": "https://i.ibb.co/DpZxMwg/pngwing-com-26.png",
+        "company_name": "Tech Innovators",
+        "salary_per_hour": 22,
+        "open_jobs_count": 7,
+        "location":"Tech City",
+        "description": "Bob Wilson is a forward-thinking professional at Tech Innovators. His passion for technology  drives" 
+    },
+    {
+        "image_url": "https://i.ibb.co/L5wDYFx/pngwing-com-27.png",
+        "company_name": "Global Solutions",
+        "salary_per_hour": 28,
+        "open_jobs_count": 2,
+        "location": "Metropolis",
+        "description": "Sarah Brown is a dynamic team member at Global Solutions, a company known for its global impact.impa "
+    },
+    {
+        "image_url": "https://i.ibb.co/Tt7zp49/pngwing-com-28.png",
+        "company_name": "Data Masters",
+        "salary_per_hour": 33,
+        "open_jobs_count": 4,
+        "location": "Dataville",
+        "description": "Michael Jones is a data enthusiast at Data Masters, a company specializing in data-driven solutions."
+    },
+    {
+        "image_url": "https://i.ibb.co/DRM53jS/pngwing-com-29.png",
+        "company_name": "Creative Creations",
+        "salary_per_hour": 26,
+        "open_jobs_count": 6,
+        "location": "Inspiration",
+        "description": "Emily Davis is a creative talent at Creative Creations, a company known for its artistic endeavors."
+    }
+]

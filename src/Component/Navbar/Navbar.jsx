@@ -58,18 +58,17 @@ const Navbar = () => {
                 Applied Jobs
             </NavLink></li>
                 <li><NavLink
-                    to="/employs"
+                    to="/employers"
                     className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "text-purple-600" : ""
                     }
                 >
-                    Employs
+                    Employers
                 </NavLink></li>
             </>
         }
 
     </>
-    console.log(user)
 
     return (
         <div className="navbar bg-base-100">

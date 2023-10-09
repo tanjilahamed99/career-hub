@@ -13,7 +13,7 @@ const Route = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
-        errorElement:<Error></Error>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/',
@@ -37,8 +37,9 @@ const Route = createBrowserRouter([
                 element: <AppliedJob></AppliedJob>
             },
             {
-                path: '/employs',
-                element: <Employs></Employs>
+                path: '/employers',
+                element: <Employs></Employs>,
+                loader: () => fetch('employers.json')
             }
         ]
     }
