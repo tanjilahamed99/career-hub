@@ -26,7 +26,7 @@ const Registration = () => {
         const passValidate = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(password)
         
         if(!passValidate){
-            return toast('your password not validate')
+            return toast('your password is not validate')
         }
 
         createUser(email, password)
@@ -68,7 +68,7 @@ const Registration = () => {
         <div className="pb-10">
             <Navbar></Navbar>
             <div className="hero min-h-screen">
-                <div className="xl:w-1/3 w-[90%] mx-auto px-4">
+                <div className=" xl:w-1/3 md:w-1/2 w-[90%] mx-auto px-4">
                     <div className="text-center ">
                         <h1 className="md:text-5xl text-xl mt-10 md:mt-0 font-bold mb-3">Create Account!</h1>
                     </div>
