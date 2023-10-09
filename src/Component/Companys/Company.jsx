@@ -3,7 +3,7 @@ import { FaAmazon, FaFacebook, FaGoogle,FaWallet,FaTencentWeibo, FaThemeco } fro
 
 const Company = () => {
     return (
-        <div className="w-[80%] mx-auto mt-10">
+        <div data-aos="fade-up" className="w-[80%] mx-auto mt-10">
             <h2 className="text-3xl text-center font-semibold">Trusted Companies</h2>
             <Marquee className="bg-pink-50 p-4 rounded-lg mt-3">
                 <div className="flex items-center gap-8">

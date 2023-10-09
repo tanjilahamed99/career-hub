@@ -10,7 +10,7 @@ const Login = () => {
 
     const [see, setSee] = useState(false)
 
-    const { loginUser, googleLogin } = useContext(AuthContext)
+    const { loginUser, googleLogin, githubLogin } = useContext(AuthContext)
 
     const login = e => {
         e.preventDefault()
@@ -24,7 +24,6 @@ const Login = () => {
             })
             .catch(error => {
                 toast(`${error.message}`)
-
             })
     }
 
@@ -32,9 +31,22 @@ const Login = () => {
         googleLogin()
             .then(() => {
                 toast("successful login account")
+                navigate('/')
+            })
+            .catch(error => {
+                toast(`${error.message}`)
+            })
+    }
+
+    const loginWithGithub = () => {
+        githubLogin()
+            .then(() => {
+                toast("successful login account")
+                navigate('/')
             })
             .catch(error => {
                 console.log(error.message)
+                toast(`${error.message}`)
             })
     }
 
@@ -79,7 +91,7 @@ const Login = () => {
                     </div>
                     <div className="flex items-center justify-center gap-10">
                         <button onClick={loginWithGoogle} className="btn rounded-full mt-5  bg-red-600 text-white "><FaGoogle className="text-lg"></FaGoogle></button>
-                        <button className="btn rounded-full mt-5 btn-primary "><FaGithub className="text-lg"></FaGithub></button>
+                        <button onClick={loginWithGithub} className="btn rounded-full mt-5 btn-primary "><FaGithub className="text-lg"></FaGithub></button>
                     </div>
                 </div>
             </div>

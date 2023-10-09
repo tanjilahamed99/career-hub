@@ -3,7 +3,7 @@ import { TbTargetArrow } from "react-icons/tb";
 
 const Personalized = () => {
     return (
-        <div className="my-20">
+        <div data-aos="fade-up" className="my-20">
             <h2 className="font-bold text-3xl text-center lg:px-20">Your Personalized Job Search Assistant</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 px-2 lg:grid-cols-3 gap-10 items-center justify-center mt-10">
                 <div className="text-center p-5 bg-purple-50 rounded-md">

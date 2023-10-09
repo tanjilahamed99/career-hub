@@ -11,7 +11,7 @@ const Service = () => {
             .then(data => setServices(data))
     }, [])
     return (
-        <div className="mt-20">
+        <div data-aos="fade-up" className="mt-20">
             <h2 className="text-center font-bold text-3xl mt-10 mb-5 ">Our Service</h2>
             <div className="grid xl:grid-cols-3 grid-cols-1 md:grid-cols-2 px-2 gap-10 items-center justify-center text-center">
                 {

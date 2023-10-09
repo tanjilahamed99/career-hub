@@ -97,7 +97,7 @@ const Navbar = () => {
                     user ? <img className="w-10" src={user.photoURL} alt="" /> : <img className="w-10" src="https://i.ibb.co/gvsBmQR/pngwing-com-22.png" alt="" />
                 }
                 {
-                    user && <h2>{user.displayName}</h2>
+                    user && <h2 className="mx-3">{user.displayName}</h2>
                 }
                 {
                     user ? <button onClick={logoutUser} className="btn bg-base-100">Logout</button> : <Link to={'/login'}><button className="btn bg-base-100">login</button></Link>

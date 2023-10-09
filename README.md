@@ -1,8 +1,10 @@
-# React + Vite
+# Better Career
+- my page name is: Better-Career
+- live link : 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 5 futures of my website
+- its responsive for every device.
+- we have firebase authentication system.
+- service section are fully dynamic.
+- you login and registration in this website and applied more jobs.
+- we have one special system for login those are google and github   

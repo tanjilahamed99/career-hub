@@ -35,7 +35,7 @@ const Registration = () => {
                 navigate('/')
             })
             .catch(error => {
-                console.log(error.message)
+                toast(`${error.message}`)
             })
     }
 
@@ -45,7 +45,7 @@ const Registration = () => {
                 toast("successful login account")
             })
             .catch(error => {
-                console.log(error.message)
+                toast(`${error.message}`)
             })
     }
 
@@ -53,10 +53,10 @@ const Registration = () => {
         githubLogin()
             .then(() => {
                 toast("successful login account")
+                navigate('/')
             })
             .catch(error => {
-                console.log(error.message)
-
+                toast(`${error.message}`)
             })
     }
 
@@ -81,7 +81,7 @@ const Registration = () => {
                                 <label className="label">
                                     <span className="label-text">Image URL</span>
                                 </label>
-                                <input name="url" type="text" placeholder="image" className="input input-bordered" />
+                                <input name="url" required type="text" placeholder="image" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
