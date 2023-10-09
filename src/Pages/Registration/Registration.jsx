@@ -1,17 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Component/Navbar/Navbar";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import auth from "../../Firebase/congig";
+import toast from "react-hot-toast";
 
 const Registration = () => {
 
     const navigate = useNavigate()
 
     const [see, setSee] = useState(false)
-    const { createUser } = useContext(AuthContext)
+    const { createUser, googleLogin, githubLogin } = useContext(AuthContext)
 
 
 
@@ -22,12 +23,15 @@ const Registration = () => {
         const email = e.target.email.value
         const password = e.target.password.value
 
+        const passValidate = /^[a-z]{1,5}$/.test(password)
+        console.log(passValidate)
 
         createUser(email, password)
             .then(() => {
-                updateProfile(auth.currentUser,{
+                updateProfile(auth.currentUser, {
                     displayName: name, photoURL: image
                 })
+                toast("successful create account")
                 navigate('/')
             })
             .catch(error => {
@@ -35,14 +39,35 @@ const Registration = () => {
             })
     }
 
+    const loginWithGoogle = () => {
+        googleLogin()
+            .then(() => {
+                toast("successful login account")
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
+    const loginWithGithub = () => {
+        githubLogin()
+            .then(() => {
+                toast("successful login account")
+            })
+            .catch(error => {
+                console.log(error.message)
+
+            })
+    }
+
 
     return (
-        <div>
+        <div className="pb-10">
             <Navbar></Navbar>
             <div className="hero min-h-screen">
-                <div className="w-1/3 mx-auto">
+                <div className="xl:w-1/3 w-[90%] mx-auto px-4">
                     <div className="text-center ">
-                        <h1 className="text-5xl font-bold mb-3">Create Account!</h1>
+                        <h1 className="md:text-5xl text-xl mt-10 md:mt-0 font-bold mb-3">Create Account!</h1>
                     </div>
                     <div className=" w-full shadow-2xl bg-base-100">
                         <form onSubmit={createAccount} className="card-body">
@@ -56,7 +81,7 @@ const Registration = () => {
                                 <label className="label">
                                     <span className="label-text">Image URL</span>
                                 </label>
-                                <input name="url" type="text" placeholder="image" className="input input-bordered"  />
+                                <input name="url" type="text" placeholder="image" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -78,6 +103,15 @@ const Registration = () => {
                             </div>
                             <p>Already have account? <Link to={'/login'}><span className="text-purple-600 font-bold">Login</span></Link></p>
                         </form>
+                    </div>
+                    <div className="text-center flex items-center gap-3 mt-5 justify-center">
+                        <hr className="border border-black w-[30%]" />
+                        <h2 className="text-center text-lg font-medium">or sign in</h2>
+                        <hr className="border border-black w-[30%]" />
+                    </div>
+                    <div className="flex items-center justify-center gap-10">
+                        <button onClick={loginWithGoogle} className="btn rounded-full mt-5  bg-red-600 text-white "><FaGoogle className="text-lg"></FaGoogle></button>
+                        <button onClick={loginWithGithub} className="btn rounded-full mt-5 btn-primary "><FaGithub className="text-lg"></FaGithub></button>
                     </div>
                 </div>
             </div>

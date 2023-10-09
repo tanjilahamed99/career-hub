@@ -5,11 +5,15 @@ import Detail from "../Pages/Detail/Detail";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
+import AppliedJob from "../Pages/AppliedJob/AppliedJob";
+import Error from "../Pages/Error/Error";
+import Employs from "../Pages/Employs/Employs";
 
 const Route = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement:<Error></Error>,
         children: [
             {
                 path: '/',
@@ -27,6 +31,14 @@ const Route = createBrowserRouter([
             {
                 path: '/registration',
                 element: <Registration></Registration>
+            },
+            {
+                path: '/appliedJob',
+                element: <AppliedJob></AppliedJob>
+            },
+            {
+                path: '/employs',
+                element: <Employs></Employs>
             }
         ]
     }

@@ -1,10 +1,22 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
 
-    const { user,logout } = useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext)
+
+
+    const logoutUser = () => {
+        logout()
+            .then(() => {
+                toast("successful logout")
+            })
+            .catch(error => {
+                toast(`${error.message}`)
+            })
+    }
 
     const ulLink = <>
         <li><NavLink
@@ -16,14 +28,7 @@ const Navbar = () => {
             Home
         </NavLink></li>
 
-        <li><NavLink
-            to="/"
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-purple-600" : ""
-            }
-        >
-            Employs
-        </NavLink></li>
+
 
         <li><NavLink
             to="/"
@@ -33,6 +38,7 @@ const Navbar = () => {
         >
             Blog
         </NavLink></li>
+
         <li><NavLink
             to="/registration"
             className={({ isActive, isPending }) =>
@@ -42,7 +48,28 @@ const Navbar = () => {
             Registration
         </NavLink></li>
 
+        {
+            user && <> <li><NavLink
+                to="/appliedJob"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-purple-600" : ""
+                }
+            >
+                Applied Jobs
+            </NavLink></li>
+                <li><NavLink
+                    to="/employs"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "text-purple-600" : ""
+                    }
+                >
+                    Employs
+                </NavLink></li>
+            </>
+        }
+
     </>
+    console.log(user)
 
     return (
         <div className="navbar bg-base-100">
@@ -67,12 +94,14 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {/* {
-                    user.photoURL ? <img className="w-10" src={user.} alt="" /> :<img className="w-10" src="https://i.ibb.co/gvsBmQR/pngwing-com-22.png" alt="" />
-                } */}
-                <img className="w-10" src="https://i.ibb.co/gvsBmQR/pngwing-com-22.png" alt="" />
                 {
-                    user ? <button onClick={logout} className="btn bg-base-100">Logout</button> : <Link to={'/login'}><button className="btn bg-base-100">login</button></Link>
+                    user ? <img className="w-10" src={user.photoURL} alt="" /> : <img className="w-10" src="https://i.ibb.co/gvsBmQR/pngwing-com-22.png" alt="" />
+                }
+                {
+                    user && <h2>{user.displayName}</h2>
+                }
+                {
+                    user ? <button onClick={logoutUser} className="btn bg-base-100">Logout</button> : <Link to={'/login'}><button className="btn bg-base-100">login</button></Link>
                 }
             </div>
         </div>

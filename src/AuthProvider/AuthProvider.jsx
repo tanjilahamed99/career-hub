@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from '../Firebase/congig';
 
 export const AuthContext = createContext(null)
@@ -24,6 +24,16 @@ const AuthProvider = ({ children }) => {
         setStay(true)
         return signOut(auth)
     }
+    const googleProvider = new GoogleAuthProvider()
+
+    const googleLogin = () => {
+        return signInWithPopup(auth, googleProvider)
+    }
+    const githubProvider = new GithubAuthProvider()
+
+    const githubLogin = () => {
+        return signInWithPopup(auth,githubProvider)
+    }
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -41,7 +51,9 @@ const AuthProvider = ({ children }) => {
         loginUser,
         logout,
         user,
-        stay
+        stay,
+        googleLogin,
+        githubLogin
     }
 
     return (
