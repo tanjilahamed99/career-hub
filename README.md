@@ -9,9 +9,3 @@
 - in this website we have login and registration system.
 - we have anther two  special system for login those are google and github   
 
-
-
-# MCQ
-
-- 1
-ans:
