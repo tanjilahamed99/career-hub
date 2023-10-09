@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../../Component/Navbar/Navbar";
 import DisplayEmployers from "./DisplayEmployers";
+import Footer from "../../Component/Footer/Footer";
 
 const Employs = () => {
     const employersData = useLoaderData()
@@ -20,6 +21,8 @@ const Employs = () => {
                     employersData.map((employers, idx) => <DisplayEmployers key={idx} employers={employers}></DisplayEmployers>)
                 }
             </div>
+
+            <Footer></Footer>
 
         </div>
     );
